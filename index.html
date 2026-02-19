@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cyber Password Strength Console</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Matrix background -->
+  <canvas id="matrix"></canvas>
+
+  <!-- Scanlines overlay -->
+  <div class="scanlines" aria-hidden="true"></div>
+  <div class="vignette" aria-hidden="true"></div>
+
+  <div class="wrap">
+    <header class="top">
+      <div class="brand">
+        <div class="mark">⚡</div>
+        <div class="titles">
+          <div class="glitch" data-text="SECURITY CONSOLE">SECURITY CONSOLE</div>
+          <div class="sub">Password strength analyzer • local-only • real-time</div>
+        </div>
+      </div>
+
+      <div class="toggles">
+        <button id="modeBtn" class="btn ghost" type="button">Theme: Neon</button>
+        <button id="genBtn" class="btn" type="button">Generate</button>
+        <button id="copyBtn" class="btn" type="button">Copy</button>
+      </div>
+    </header>
+
+    <main class="grid">
+      <section class="panel inputPanel">
+        <div class="panelHead">
+          <div class="panelTitle">INPUT</div>
+          <div id="status" class="status">Waiting…</div>
+        </div>
+
+        <div class="field">
+          <label for="pw" class="label">Enter password</label>
+          <div class="inputRow">
+            <input id="pw" type="password" class="input" placeholder="Type here..." autocomplete="new-password" />
+            <button id="showBtn" class="btn ghost small" type="button">Show</button>
+            <button id="clearBtn" class="btn ghost small" type="button">Clear</button>
+          </div>
+          <div class="hint">Tip: try a passphrase like <span class="mono">Sunset!Tea#River9</span></div>
+        </div>
+
+        <div class="meterBlock">
+          <div class="meterLabelRow">
+            <div class="mono">Strength Meter</div>
+            <div class="mono"><span id="score">0</span>/100</div>
+          </div>
+
+          <div class="meter">
+            <div id="meterFill" class="meterFill"></div>
+          </div>
+
+          <div class="rankRow">
+            <div id="rank" class="rank r0">UNSAFE</div>
+            <div id="crack" class="crack">Crack time: —</div>
+          </div>
+
+          <div class="miniStats">
+            <div class="mini">
+              <div class="k">Entropy</div>
+              <div id="entropy" class="v">0 bits</div>
+            </div>
+            <div class="mini">
+              <div class="k">Flags</div>
+              <div id="flags" class="v">—</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel reportPanel">
+        <div class="panelHead">
+          <div class="panelTitle">REPORT</div>
+          <div class="mono dim">Live checks</div>
+        </div>
+
+        <div class="checks">
+          <div class="check"><span id="c_len" class="led off"></span><span>Length ≥ 8 (12+ recommended)</span></div>
+          <div class="check"><span id="c_low" class="led off"></span><span>Lowercase present</span></div>
+          <div class="check"><span id="c_up" class="led off"></span><span>Uppercase present</span></div>
+          <div class="check"><span id="c_num" class="led off"></span><span>Number present</span></div>
+          <div class="check"><span id="c_sym" class="led off"></span><span>Symbol present</span></div>
+          <div class="check"><span id="c_common" class="led off"></span><span>Not common password</span></div>
+          <div class="check"><span id="c_pat" class="led off"></span><span>No obvious pattern (1234 / aaaa)</span></div>
+        </div>
+
+        <div class="tipsBox">
+          <div class="panelTitle smallTitle">SUGGESTIONS</div>
+          <ul id="tips" class="tips"></ul>
+        </div>
+
+        <div class="note">
+          <span class="tag">Privacy</span>
+          Runs only in your browser — nothing is sent anywhere.
+        </div>
+      </section>
+    </main>
+
+    <footer class="foot">
+      <div class="mono dim">> Ready. Type a password to begin analysis.</div>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
