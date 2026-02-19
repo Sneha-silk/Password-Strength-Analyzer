@@ -1,18 +1,18 @@
 # Password-Strength-Analyzer
 A cyberpunk-style password strength analyzer that evaluates password security in real time using entropy calculation and rule-based checks.
 
-"Features"
+Features:-
 
-Strength score (0–100)
+-> Strength score (0–100)
 
-Entropy (bits) & crack-time estimation
+-> Entropy (bits) & crack-time estimation
 
-Detection of weak patterns (1234, aaaa)
+-> Detection of weak patterns (1234, aaaa)
 
-Common password detection
+-> Common password detection
 
-Secure password generator
+-> Secure password generator
 
-Matrix-style animated UI
+-> Matrix-style animated UI
 
-Runs fully in the browser (no data stored)
+-> Runs fully in the browser (no data stored)
