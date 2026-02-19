@@ -1,7 +1,7 @@
 # Password-Strength-Analyzer
 A cyberpunk-style password strength analyzer that evaluates password security in real time using entropy calculation and rule-based checks.
 
-🚀 Features
+"Features"
 
 Strength score (0–100)
 
